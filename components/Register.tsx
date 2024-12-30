@@ -23,7 +23,6 @@ const Register = () => {
 
         try {
             await register(name, password, email);
-            
             router.push('/login');
         } catch (err: any) {
             console.log(err?.response);

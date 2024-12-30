@@ -1,5 +1,3 @@
-import { NextPageContext } from "next";
-
 const Home = () => {
   return (
     <div>

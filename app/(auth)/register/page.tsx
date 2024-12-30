@@ -1,7 +1,11 @@
 import Register from '@/components/Register'
-import React from 'react'
+import { Metadata } from 'next';
 
-const page = () => {
+export const metadata: Metadata = {
+  title: "Registro",
+};
+ 
+export default function page() {
   return (
     <div>
       <Register />
@@ -9,4 +13,3 @@ const page = () => {
   )
 }
 
-export default page
