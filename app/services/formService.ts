@@ -1,10 +1,11 @@
 import { ItemProps } from '@/types/ItemTypes';
-import { instanceAXIOSBack } from './requestConfig';
+import { instanceAXIOSBack, instanceAXIOSBackFiles } from './requestConfig';
 
 export const setForm = async (formElements: ItemProps[]) => {
-    const response = await instanceAXIOSBack.post('/forms', formElements);
-    
-    return response.data;
+  //await instanceAXIOSBack.get(`/sanctum/csrf-cookie`);
+  const response = await instanceAXIOSBack.post('/api/forms', formElements);
+
+  return response.data;
 };
 
 /**
@@ -21,8 +22,9 @@ export const setForm = async (formElements: ItemProps[]) => {
  */
 
 export const getForm = async () => {
-    const response = await instanceAXIOSBack.get('/forms');
-    return response.data;
+  //await instanceAXIOSBack.get(`/sanctum/csrf-cookie`);
+  const response = await instanceAXIOSBack.get('/api/forms');
+  return response.data;
 };
 
 /**

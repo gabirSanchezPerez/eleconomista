@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { login } from '@/app/services/authService';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -24,8 +25,8 @@ const Login = () => {
             const response = await login(username, password);
             const expirationDate = new Date(new Date().getTime() + 2 * 60 * 60 * 1000); // 2 hours from now
             console.log(response.token, expirationDate);
-            localStorage.setItem('token', response.token);
-            Cookies.set('token', response.token, { expires: expirationDate });
+            localStorage.setItem('auth_token', response.token);
+            Cookies.set('auth_token', response.token, { expires: expirationDate });
             router.push('/user');
             //Cookies.set('token', response.token, { expires: 1 }); // Store token in a cookie for 7 days
             //router.push('/');

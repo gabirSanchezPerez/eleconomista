@@ -1,15 +1,18 @@
 import axios from 'axios';
 import { NextApiRequest } from 'next';
+import { instanceAXIOSBack } from './requestConfig';
 
-const API_URL = 'http://localhost/test/eleconomista-back/api';
+const API_URL = process.env.NEXT_PUBLIC_URL_BACKEND;
 
 export const register = async (name: string, password: string, email: string,) => {
-    const response = await axios.post(`${API_URL}/register`, { name, password, email });
+    await instanceAXIOSBack.get(`${API_URL}/sanctum/csrf-cookie`);
+    const response = await instanceAXIOSBack.post(`${API_URL}/api/register`, { name, password, email });
     return response.data;
 };
 
 export const login = async (email: string, password: string) => {
-    const response = await axios.post(`${API_URL}/login`, { email, password });
+    await instanceAXIOSBack.get(`${API_URL}/sanctum/csrf-cookie`);
+    const response = await instanceAXIOSBack.post(`${API_URL}/api/login`, { email, password });
     return response.data;
 };
 

@@ -29,8 +29,9 @@ const FormsDynamics = () => {
 
   const sendDataToAPI = async () => {
     try {
+      console.log('sendDataToAPI', formElements);
       const response = await setForm(formElements);
-      console.log(response);
+      console.log('sendDataToAPI', response);
       const { status } = response;
       if (status === 200) {
         //msgSuccess("Registro creado");
