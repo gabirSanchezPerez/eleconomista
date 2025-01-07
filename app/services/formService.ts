@@ -3,7 +3,8 @@ import { instanceAXIOSBack, instanceAXIOSBackFiles } from './requestConfig';
 
 export const setForm = async (formElements: ItemProps[]) => {
   //await instanceAXIOSBack.get(`/sanctum/csrf-cookie`);
-  const response = await instanceAXIOSBack.post('/api/forms', formElements);
+  const name = new Date();
+  const response = await instanceAXIOSBack.post('/api/forms', {name: name.getTime().toString(), fields: formElements});
 
   return response.data;
 };
