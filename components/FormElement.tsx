@@ -1,7 +1,7 @@
 import { ItemProps } from '@/types/ItemTypes';
 import React, { FC } from 'react';
 
-const FormElement: FC<ItemProps> = ({ id, type, label, options = [] }) => {
+const FormElement: FC<ItemProps> = ({ name_id, type, label, options = [] }) => {
     const renderElement = () => {
         const id = `form-element-${label.replace(/\s+/g, '-').toLowerCase()}`; // Generar un ID único basado en el label.
 
@@ -16,6 +16,7 @@ const FormElement: FC<ItemProps> = ({ id, type, label, options = [] }) => {
                         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}:</label>
                         <input
                             id={id}
+                            name={name_id}
                             type={type}
                             placeholder={label}
                             className="block w-full rounded-md border border-gray-500 shadow-sm focus:border-gray-700 focus:ring-gray-500 text-sm p-2 "
@@ -28,6 +29,7 @@ const FormElement: FC<ItemProps> = ({ id, type, label, options = [] }) => {
                         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}</label>
                         <textarea
                             id={id}
+                            name={name_id}
                             placeholder={label}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 text-sm border p-2"
                         />
@@ -39,6 +41,7 @@ const FormElement: FC<ItemProps> = ({ id, type, label, options = [] }) => {
                         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}</label>
                         <select
                             id={id}
+                            name={name_id}
                             className="mt-1 block w-full rounded-md border-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
                         >
                             {options.map((option) => (
@@ -99,6 +102,7 @@ const FormElement: FC<ItemProps> = ({ id, type, label, options = [] }) => {
                         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}</label>
                         <input
                             id={id}
+                            name={name_id}
                             type={type}
                             className="mt-1 block w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 text-sm "
                         />

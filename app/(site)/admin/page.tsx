@@ -1,7 +1,9 @@
+import Administrator from "@/components/Administrator"
+
 const page = () => {
     return (
       <div>
-          <h1>Page Admin</h1>
+          <Administrator />
       </div>
     )
   }

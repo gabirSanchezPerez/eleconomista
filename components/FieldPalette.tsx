@@ -6,11 +6,11 @@ import { useDrag } from 'react-dnd';
 const ItemType = 'FORM_ELEMENT';
 
 // Paleta de campos DraggableItem
-const FieldPalette: FC<ItemProps> = ({id, type, label, options}) => {
+const FieldPalette: FC<ItemProps> = ({name_id, type, label, options}) => {
 
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemType,
-        item: { id, type, label, options },
+        item: { name_id, type, label, options },
         collect: (monitor) => ({ isDragging: monitor.isDragging() }),
       }));
     

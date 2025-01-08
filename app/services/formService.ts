@@ -1,10 +1,22 @@
-import { ItemProps } from '@/types/ItemTypes';
-import { instanceAXIOSBack, instanceAXIOSBackFiles } from './requestConfig';
+import { ItemProps } from "@/types/ItemTypes";
+import { instanceAXIOSBack } from "./requestConfig";
+import { Filters } from "@/types/forms";
 
 export const setForm = async (formElements: ItemProps[]) => {
   //await instanceAXIOSBack.get(`/sanctum/csrf-cookie`);
   const name = new Date();
-  const response = await instanceAXIOSBack.post('/api/forms', {name: name.getTime().toString(), fields: formElements});
+  const fromElementFormatt = formElements.map((element) => {
+    return {
+      name_id: element.name_id,
+      type: element.type,
+      label: element.label,
+      options: element.options ? element.options.toString() : "",
+    };
+  });
+  const response = await instanceAXIOSBack.post("/api/forms", {
+    name: name.getTime().toString(),
+    fields: fromElementFormatt,
+  });
 
   return response.data;
 };
@@ -22,9 +34,13 @@ export const setForm = async (formElements: ItemProps[]) => {
           }
  */
 
-export const getForm = async () => {
+export const getForm = async ( filters: Filters) => {
   //await instanceAXIOSBack.get(`/sanctum/csrf-cookie`);
-  const response = await instanceAXIOSBack.get('/api/forms');
+  const response = await instanceAXIOSBack.get("/api/forms", {
+    params: {
+      filters
+    },
+  });
   return response.data;
 };
 

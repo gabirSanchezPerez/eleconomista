@@ -36,7 +36,7 @@ const DroppableArea: FC<DropAreaProps> = ({ formElements, addElement }) => {
     return (
         <div ref={drop} className={`border p-2 m-2 radius bg-gray-100 min-h-12 ${isOver ? 'border-blue-500' : 'border-gray-300'} grid grid-cols-1 gap-2 md:grid-cols-2 lg:gap-4 lg:grid-cols-4 `} >
             {formElements.map((element) => (
-                <FormElement key={element.id} id={element.id} type={element.type} label={element.label} options={element.options} />
+                <FormElement key={element.name_id} name_id={element.name_id} type={element.type} label={element.label} options={element.options} />
             ))}
             {formElements.length === 0 && (
                 <p className="text-gray-500 text-sm mx-auto col-span-4">Arrastra elementos aquí para construir tu formulario.</p>

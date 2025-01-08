@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 import { login } from '@/app/services/authService';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
-import axios from 'axios';
 
 const Login = () => {
     const [username, setUsername] = useState('');

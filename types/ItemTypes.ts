@@ -12,7 +12,7 @@ export const ItemTypes = {
 };
 
 export interface ItemProps {
-  id: string;
+  name_id: string;
   type: string;
   label: string;
   options?: string[]; // Para tipos como 'select' o 'radio' y check.

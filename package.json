@@ -1,5 +1,5 @@
 {
-  "name": "scanfold",
+  "name": "el_economista",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,8 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.54.2"
+    "react-hook-form": "^7.54.2",
+    "sweetalert2": "^11.15.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
